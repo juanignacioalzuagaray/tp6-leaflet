@@ -23,22 +23,36 @@
 
 <script>
   var marker = L.marker([-34.6037, -58.3816]).addTo(map);
-</script>
-
-<script>
-  var marker = L.marker([-34.6037, -58.3816]).addTo(map);
   marker.bindPopup("Hola! Soy un popup 😄");
 </script>
 
+
+
 <class marcadores>
-    <script>
+
+<script>
+    var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+var circle = L.circle([-34.6037, -58.3816], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map);
+
+map.on('click', onMapClick);
   var marker = L.marker([-9.961, -67.862]).addTo(map);
-</script>
-<script>
   var marker = L.marker([-9.039, -63.961]).addTo(map);
-</script>
-<script>
   var marker = L.marker([-13.88, -58.74]).addTo(map);
 </script>
+
 </class>
+
 </html>
